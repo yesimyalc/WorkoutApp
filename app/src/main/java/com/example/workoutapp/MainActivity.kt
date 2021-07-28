@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity()
 
     fun onButtonOne(view: View)
     {
-
+        val intent= Intent(this, MBIActivity::class.java)
+        startActivity(intent)
     }
 
     fun onButtonTwo(view: View)
