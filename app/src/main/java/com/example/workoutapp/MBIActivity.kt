@@ -1,12 +1,15 @@
 package com.example.workoutapp
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import org.w3c.dom.Text
 
 class MBIActivity : AppCompatActivity()

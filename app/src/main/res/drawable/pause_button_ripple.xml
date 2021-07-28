@@ -9,9 +9,8 @@
     </item>
 
     <item>
-        <shape android:shape="oval">
-            <solid android:color="@color/colorAccent"/>
-        </shape>
+
+
     </item>
 
 </ripple>
