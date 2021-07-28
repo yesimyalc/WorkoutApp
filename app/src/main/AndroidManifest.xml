@@ -11,7 +11,7 @@
         android:theme="@style/Theme.WorkoutApp">
         <activity android:name=".MBIActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" ></activity>
+            android:theme="@style/Theme2.WorkoutApp" ></activity>
         <activity
             android:name=".SetupActivity"
             android:screenOrientation="portrait"

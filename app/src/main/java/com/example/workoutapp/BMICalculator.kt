@@ -1,5 +1,6 @@
 package com.example.workoutapp
 
+import android.util.Log
 import java.lang.IllegalArgumentException
 
 class BMICalculator(height: Double, weight: Double, type: String)
@@ -18,7 +19,7 @@ class BMICalculator(height: Double, weight: Double, type: String)
         if(height<0 || weight<0)
             throw IllegalArgumentException()
 
-        if(type!="US"&& type!="METRIC")
+        if(type!="US" && type!="METRIC")
             this.type="METRIC"
     }
 
@@ -27,9 +28,7 @@ class BMICalculator(height: Double, weight: Double, type: String)
         if(this.type=="METRIC")
             bmi=(weight/height/height)*10000
         else
-        {
-
-        }
+            bmi=(weight/height/height)*703
 
         setState()
     }
@@ -50,6 +49,7 @@ class BMICalculator(height: Double, weight: Double, type: String)
 
     fun getBMI():String
     {
+        Log.i("MyMessage", "dfs"+bmi)
         return String.format("%.2f", bmi)
     }
 }

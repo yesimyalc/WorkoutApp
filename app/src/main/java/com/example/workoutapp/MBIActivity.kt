@@ -2,6 +2,7 @@ package com.example.workoutapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -63,22 +64,37 @@ class MBIActivity : AppCompatActivity()
         bmiResult!!.visibility=View.GONE
     }
 
+    fun isValid():Boolean
+    {
+        if(metricView?.visibility==View.VISIBLE && (heightTextM!!.text.isEmpty() || weightTextM!!.text.isEmpty()))
+            return false
+        else if(usView?.visibility==View.VISIBLE && (heightInFEET!!.text.isEmpty() || heightInINCH!!.text.isEmpty() || weightInLBS!!.text.isEmpty()))
+            return false
+
+        return true
+    }
+
     fun onCalculate(view: View)
     {
-        val bmiValue=findViewById<TextView>(R.id.bmiValue)
-        val bmiType=findViewById<TextView>(R.id.bmiType)
-
-        if(metricView?.visibility==View.VISIBLE)
+        if(isValid())
         {
-            val calculator=BMICalculator(heightTextM!!.text.toString().toDouble() ,weightTextM!!.text.toString().toDouble(), "METRIC")
+            val bmiValue = findViewById<TextView>(R.id.bmiValue)
+            val bmiType = findViewById<TextView>(R.id.bmiType)
+            var calculator: BMICalculator? = null
+
+            if (metricView?.visibility == View.VISIBLE)
+            {
+                calculator = BMICalculator(heightTextM!!.text.toString().toDouble(), weightTextM!!.text.toString().toDouble(), "METRIC")
+            }
+            else
+            {
+                var heightValue = (heightInINCH!!.text.toString().toDouble()) + (heightInFEET!!.text.toString().toDouble()) * 12
+                calculator = BMICalculator(heightValue, weightInLBS!!.text.toString().toDouble(), "US")
+            }
             calculator.calculateBMI()
-            bmiValue!!.text=calculator.getBMI().toString()
-            bmiType!!.text=calculator.state
+            bmiValue!!.text = calculator.getBMI()
+            bmiType!!.text = calculator.state
+            bmiResult!!.visibility = View.VISIBLE
         }
-        else
-        {
-
-        }
-        bmiResult!!.visibility=View.VISIBLE
     }
 }
