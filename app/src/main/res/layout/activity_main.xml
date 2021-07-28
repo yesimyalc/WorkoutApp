@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/main_screen_main_layout_padding"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_screen_image_height"
+        android:contentDescription="@string/image"
+        android:layout_marginTop="10sp"
+        android:src="@drawable/img_main_page" />
+
+    <LinearLayout
+        android:id="@+id/llStart"
+        android:layout_width="@dimen/start_button_size"
+        android:layout_height="@dimen/start_button_size"
+        android:layout_marginTop="@dimen/start_button_margin_top"
+        android:background="@drawable/start_button_ripple_effect"
+        android:gravity="center"
+        android:clickable="true"
+        android:onClick="onStartButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/start_button_label_textSize"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+        <TextView
+            android:id="@+id/buttonOne"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/star_button2"
+            android:text="BMI"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/buttonTwo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:clickable="true"
+            android:onClick="onButtonOne"/>
+
+        <ImageButton
+            android:id="@+id/buttonTwo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/star_button2"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/buttonOne"
+            app:layout_constraintRight_toRightOf="parent"
+            android:clickable="true"
+            android:onClick="onButtonTwo"/>
+
+        <TextView
+            android:id="@+id/buttonOneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="2sp"
+            android:text="Calculator"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/buttonOne"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/buttonTwoText" />
+
+        <TextView
+            android:id="@+id/buttonTwoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="2sp"
+            android:text="History"
+            android:layout_marginLeft="1sp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/buttonTwo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/buttonOneText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
